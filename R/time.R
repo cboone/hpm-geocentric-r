@@ -1,4 +1,4 @@
-library("chron")
+library("chron")      # The chron package, which knows about leap years.
 
 utc.year <- function(year, POSIXct.out = TRUE) {
   require("chron")
@@ -17,4 +17,12 @@ utc.year <- function(year, POSIXct.out = TRUE) {
   } else {
     days.of.year
   }
+}
+
+convert.day.to.radians <- function(day) {
+  (day / 365) * (2 * pi)
+}
+
+adjust.for.time.zone.offset <- function(time, time.zone.offset) {
+  time + (time.zone.offset / 24)
 }
